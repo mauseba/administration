@@ -843,17 +843,16 @@
             <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                 @auth
                     <a href="{{ url('/dashboard') }}"
-                        class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+                        class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Tableau de bord</a>
                     
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}"
-                            class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-                    @endif
                    
                 @else
                     <a href="{{ route('login') }}"
-                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log
-                        in</a>
+                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Se connecter</a>
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}"
+                            class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">enregistrement</a>
+                    @endif
                
 
                 @endauth
@@ -879,14 +878,10 @@
                                 </svg>
                             </div>
 
-                            <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Learning French at the
-                                CACI, your key to success</h2>
+                            <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Apprendre le français au CACI, la clés du succès</h2>
 
                             <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                French courses offered at the CACI are intended for all those who wish to learn French
-                                or to improve their knowledge of French. The certificate which is delivered is valid for
-                                the citizenship application. Four sessions are offered per year in the spring, summer,
-                                fall and winter.
+                                Les cours de français sont destinés à tous ceux qui souhaitent apprendre le français ou améliorer leur connaissance du français. Le certificat qui vous sera délivré est valide pour la demande de citoyenneté. Quatre sessions sont offertes par année, au printemps, à l’été, à l’automne et en hiver.
                             </p>
                         </div>
 
@@ -909,19 +904,15 @@
                                 </svg>
                             </div>
 
-                            <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Volunteering at the
-                                CACI </h2>
+                            <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Faire du bénévolat au CACI</h2>
 
                             <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                We rely on the support of volunteers of all origins who bring their unique skills and
-                                experience.
-                                There are many ways to serve your community as a volunteer:
+                                Nous comptons sur le soutien de bénévoles de toutes origines dont chacun a des compétences et une expérience uniques à offrir. Il existe différentes manières de rendre service à votre communauté en tant que bénévole :
                             <ul class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                <li>by accompanying the elderly or by supporting young people in their school learning,
-                                </li>
-                                <li> by helping newcomers to settle in Quebec and to integrate their new community,</li>
-                                <li>by lending us a hand in carrying out administrative tasks,</li>
-                                <li>by helping us create a welcoming environment for those who call on us.</li>
+                                <li>en accompagnant des personnes âgées ou en encadrant des jeunes dans leur apprentissage scolaire,</li>
+                                <li>en soutenant de nouveaux arrivants dans le cadre de leur installation au Québec et de leur intégration à leur nouvelle communauté,,</li>
+                                <li>en nous donnant un coup de main dans nos tâches administratives,</li>
+                                <li>en nous aidant à créer un environnement accueillant pour nos bénéficiaires.</li>
                             </ul>
                             </p>
                         </div>
@@ -945,13 +936,10 @@
                                 </svg>
                             </div>
 
-                            <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Immigrant and Refugee
-                                Assistance Centre in Montreal</h2>
+                            <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Centre d’aide aux immigrants et réfugiés à Montréal</h2>
 
                             <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                                Whether you are a newcomer, permanent resident, temporary worker, foreign student,
-                                refugee or asylum seeker, the CACI supports you throughout your integration process in
-                                Quebec.
+                                Que vous ayez tout juste immigré au Québec ou que vous soyez résident permanent, travailleur temporaire, étudiant étranger, réfugié, ou demandeur d’asile, le CACI vous accompagne tout au long de votre processus d’intégration au Québec.
                             </p>
                         </div>
 
