@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\QRController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,5 +29,6 @@ Route::middleware([
     Route::get('/payments', function () {
         return view('payment');
     })->name('payment');
+    Route::get('payment/{id}', [QRController::class, 'generateQRAndPDF'])->name('payment.pdf');
 });
 

@@ -4,23 +4,21 @@ namespace App\Http\Livewire;
 
 use App\Models\payment;
 use Livewire\Component;
-use Livewire\WithPagination;
-
 
 class ShowPayment extends Component
 {
-    use WithPagination;
-
     public $search;
 
-    public $option;
+    public $option='name';
+
+    protected $listeners = ['render'];
 
     public function render()
     {
         $query= payment::query();
 
         switch ($this->option) {
-            case 'Name':
+            case 'name':
                 $query->join('payment_userb','payments.payment_id','=','payment_userb.payment_id')
                     ->join('userbs','userbs.id','=','payment_userb.userb_id')
                     ->where('userbs.status', 1)
@@ -44,8 +42,9 @@ class ShowPayment extends Component
                 break;
         }
         
-        $pay = $query->get();
+        $payes = $query->get();
         
-        return view('livewire.show-payment',compact('pay'));
+        return view('livewire.show-payment',compact('payes'));
     }
+    
 }
