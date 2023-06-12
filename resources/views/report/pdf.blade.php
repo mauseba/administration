@@ -2,37 +2,45 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-    <title>QR Code PDF</title>
+    <title>Report</title>
     @php
         use Carbon\Carbon;
-        $datef= Carbon::now()->startOfWeek()->next(Carbon::FRIDAY)->format('d/m/Y');
+        //$datef= Carbon::now()->next(Carbon::FRIDAY)->isoFormat('D MMMM YYYY','fr');
+        $datef= Carbon::parse($user->date)->isoFormat('D MMMM YYYY', 'fr');
+
     @endphp
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
+    <style type="text/css"> 
+        .transformacion2 { text-transform: uppercase;}     
+    </style> 
+
+
 </head>
 
 <body>
-    <img src="{{ asset('images/caciprint.png') }}" alt="" width="150" /></td>
+    <div align="center"><img src="{{ asset('images/caciprint.png') }}" alt="" width="230"/></div>
+    <H2 align="center">DÉPANNAGE ALIMENTAIRE</H2>
+    <p align="center">6161 rue Périnault, Montreal</p>
 
-    <p>name:</p>
-    {{ $user->Nom }}
-    <p>Prenom:</p>
-    {{ $user->Prenom }} <br>
+    <h4 class="transformacion2" align="center"><strong>{{ $user->Nom }} <br>{{ $user->Prenom }}</strong></h4>
 
-    {{ $datef}}
+    <p>votre prochain rendez-vous</p>
+    <h3 align="center">{{ $datef}}</h3> 
 
-    <p>entre: 15h30 et 17h</p>
+    <p>Entre:<strong> 15h30 et 17h </strong></p>
 
-   <p>A payer: {{$user->amount}}</p> 
+    <p>A payer:<strong> {{$user->amount}}$ </strong> </p> 
 
-    <h1>QR Code</h1>
-    <img src="data:image/png;base64,{{ base64_encode($qrCode) }}" alt="QR Code">
+    <div align="center"><img src="data:image/png;base64,{{ base64_encode($qrCode) }}" alt="QR Code"></div>
+
+    <p style="font-size: large" align="center">Pour toute information, <br> SVP appelez le <strong>CACI</strong> au <br> <strong>514-856-3511, post 290</strong></p>
+
 </body>
 
 </html>

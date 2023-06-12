@@ -6,7 +6,7 @@ use App\Models\payment;
 use App\Models\Userb;
 use Livewire\Component;
 use Illuminate\Support\Str;
-
+use Carbon\Carbon;
 
 class CreatePayment extends Component
 {
@@ -19,7 +19,8 @@ class CreatePayment extends Component
     public $id_user;
     public $amount = 3.00;
     Public $statup = 2;
-    public $q_url = 'url';
+    public $date;
+    
 
     public function mount()
     {
@@ -42,15 +43,16 @@ class CreatePayment extends Component
 
     public function save()
     {
+        $this->date= Carbon::now()->next(Carbon::FRIDAY);
+
         $payment= payment::create([
             'payment_id'=> Str::random(10),
             'amount'=> $this->amount,
             'statup'=> $this->statup,
-            'qr_url'=> $this->q_url
+            'date'=> $this->date
         ]);
 
         $payment->userb()->attach($this->id_user,['payment_id'=>$payment->payment_id]);
-
         
 
         $this->emitTo('show-payment','render');

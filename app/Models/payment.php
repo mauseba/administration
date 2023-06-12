@@ -16,7 +16,7 @@ class payment extends Model
         'payment_id',
         'amount',
         'statup',
-        'qr_url'    
+        'date'    
     ];
 
     public function userb(): BelongsToMany

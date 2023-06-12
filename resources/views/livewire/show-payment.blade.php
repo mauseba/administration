@@ -73,6 +73,9 @@
                             <td>
                                 <div class="flex px-6 py-4">
                                     <div class="flex-1 ml-2">
+                                        <a class="btn btn-green"  href="{{ route('payment.pdf', $pay->payment_id)}}" >
+                                            <i class="far fa-file-pdf"></i>
+                                        </a>
                                     </div>
                                 </div>
                             </td>

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->string('payment_id')->primary();
             $table->double('amount', 6);
             $table->enum('statup',[1,2]);
-            $table->string('qr_url');
+            $table->date('date');
             $table->timestamps();
         });
     }

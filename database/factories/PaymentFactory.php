@@ -21,7 +21,7 @@ class PaymentFactory extends Factory
             'payment_id'=>Str::random(10),
             'amount'=>fake()->randomFloat($nbMaxDecimals = NULL, $min = 0, $max = NULL),
             'statup'=>fake()->randomElement($array = array(1,2)),
-            'qr_url'=>fake()->url()
+            'date'=>fake()->date($format = 'Y-m-d', $max = 'now')
         ];
     }
 }
