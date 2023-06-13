@@ -10,8 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class payment extends Model
 {
     use HasFactory;
-
-
+    
     protected $fillable = [
         'payment_id',
         'amount',

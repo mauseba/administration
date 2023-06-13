@@ -1,10 +1,10 @@
 <div>
     <x-button wire:click="$set('open',true)" >
-        Créer un utilisateur
+        créer un enregistrement
     </x-button>
     <x-dialog-modal wire:model="open" class="overflow-y-scroll">
         <x-slot name="title">
-            Créer un utilisateur
+            créer un enregistrement
         </x-slot>
         <x-slot name="content">
 

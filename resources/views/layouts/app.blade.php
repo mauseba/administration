@@ -50,6 +50,7 @@
     
 
     @stack('js')
+    @stack('script')
 
     <script>
         livewire.on('alert', function(mesage) {

@@ -81,7 +81,7 @@
                         <div class="flex -mx-3 mb-2">
                             <div class="flex-auto w-64 px-3 mb-6 ">
                                 <x-label for="Telephone" value="{{ __('Telephone') }}" />
-                                <x-input id="Telephone" class="block mt-1 w-full" type="number" name="Telephone"
+                                <x-input id="Telephone" class="block mt-1 w-full" type="tel" name="Telephone"
                                     wire:model="Telephone" required autofocus />
                                 
                                 <x-input-error for="Telephone" />
@@ -181,8 +181,10 @@
                     </div>
                     <div class="{{ $tab === 'tab2' ? 'block' : 'hidden' }}">
                         <div class="block w-1/2 -mx-3 mb-2">
-                            <x-label for="num_family_members" value="{{ __('Number') }}" />
-                            <x-input id="num_family_members" class="block mt-1 w-full" type="number" name="num_family_members" wire:model="numFamilyMembers" required autofocus readonly/>
+                            <x-label for="num_family_members" value="{{ __('Number Fam') }}" />
+                            <x-input id="num_family_members" class="block mt-1 w-full" type="number" name="num_family_members" min="0" wire:model="numFamilyMembers" required autofocus readonly/>
+
+                            <x-input-error for="num_family_members" />
                         </div>
                         @foreach ($familyMembers as $index => $familyMember)
                             <div class="flex -mx-3 mb-2">
@@ -190,11 +192,16 @@
                                     <label for="NomCom_{{ $index }}" class="block font-medium text-sm text-gray-700 dark:text-gray-300">NomCom_{{$index}}</label>
                                     <x-input id="NomCom_{{ $index }}" class="block mt-1 w-full" type="text" name="NomCom_{{ $index }}"
                                         wire:model="familyMembers.{{ $index }}.NomCom" required autofocus />
+
+                                    <x-input-error for="familyMembers.{{ $index }}.NomCom" />
+
                                 </div>
                                 <div class="flex-1 w-1/2 ml-2 px-3">
                                     <label for="LienP_{{ $index }}" class="block font-medium text-sm text-gray-700 dark:text-gray-300">LienP_{{$index}}</label>
                                     <x-input id="LienP_{{ $index }}" class="block mt-1 w-full" type="text" name="LienP_{{ $index }}"
                                         wire:model="familyMembers.{{ $index }}.LienP" required autofocus />
+
+                                    <x-input-error for="familyMembers.{{ $index }}.LienP" />
                                 </div>
                             </div>
                             <div class="flex -mx-3 mb-2">
@@ -208,11 +215,16 @@
                                         <option value="F">Femme</option>
                                         <option value="O">Autre</option>
                                     </select>
+
+                                    <x-input-error for="familyMembers.{{ $index }}.Sex" />
+
                                 </div>
                                 <div class="flex-1 w-1/2 ml-2 px-3">
                                     <label for="Age_{{ $index }}" class="block font-medium text-sm text-gray-700 dark:text-gray-300">Age_{{$index}}</label>
                                     <x-input id="Age_{{ $index }}" class="block mt-1 w-full" type="number" name="Age_{{ $index }}"
                                         wire:model="familyMembers.{{ $index }}.Age" required autofocus />
+
+                                    <x-input-error for="familyMembers.{{ $index }}.Age" />
                                 </div>
                             </div>
                             <div class="flex items-center justify-end">
@@ -228,6 +240,7 @@
                         </div>
                     </div>
                     <div class="{{ $tab === 'tab3' ? 'block' : 'hidden' }}">
+                        <x-validation-errors class="mb-4" />
                         <div class="flex -mx-3 mb-2">
                             <div class="flex-1 w-1/2 px-3 mb-6 ">
                                 <x-label for="Revenu" value="{{ __('Revenue du menage: ') }}" />

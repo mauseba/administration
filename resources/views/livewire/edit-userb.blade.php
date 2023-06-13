@@ -79,7 +79,7 @@
                         <div class="flex -mx-3 mb-2">
                             <div class="flex-auto w-64 px-3 mb-6 ">
                                 <x-label for="Telephone" value="{{ __('Telephone') }}" />
-                                <x-input id="Telephone" class="block mt-1 w-full" type="number" name="Telephone"
+                                <x-input id="Telephone" class="block mt-1 w-full" type="tel" name="Telephone"
                                     wire:model="user.Telephone" required autofocus />
 
                                 <x-input-error for="Telephone" />
