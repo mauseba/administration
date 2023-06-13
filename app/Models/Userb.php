@@ -50,8 +50,8 @@ class Userb extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function payment(): BelongsToMany
+    public function payment(): HasMany
     {
-        return $this->belongsToMany(payment::class);
+        return $this->hasMany(payment::class);
     }
 }

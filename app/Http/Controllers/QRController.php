@@ -14,8 +14,7 @@ class QRController extends Controller
         // Generar el código QR
         $qrCode = QrCode::format('png')->size(150)->generate($id);
 
-        $user=payment::join('payment_userb','payments.payment_id','=','payment_userb.payment_id')
-        ->join('userbs','userbs.id','=','payment_userb.userb_id')
+        $user=payment::join('userbs','userbs.id','=','payments.userb_id')
         ->select('userbs.id','userbs.Nom','userbs.Prenom','amount','date')
         ->where('payments.payment_id', $id)
         ->first();

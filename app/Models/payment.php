@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 
 class payment extends Model
@@ -16,12 +16,13 @@ class payment extends Model
         'payment_id',
         'amount',
         'statup',
-        'date'    
+        'date',
+        'userb_id'    
     ];
 
-    public function userb(): BelongsToMany
+    public function userb(): BelongsTo
     {
-        return $this->belongsToMany(Userb::class);
+        return $this->belongsTo(Userb::class);
     }  
     
 }

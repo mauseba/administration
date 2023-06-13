@@ -19,8 +19,7 @@ class ShowPayment extends Component
 
         switch ($this->option) {
             case 'name':
-                $query->join('payment_userb','payments.payment_id','=','payment_userb.payment_id')
-                    ->join('userbs','userbs.id','=','payment_userb.userb_id')
+                $query->join('userbs','userbs.id','=','payments.userb_id')
                     ->where('userbs.status', 1)
                     ->where(
                         function($q) {
@@ -30,19 +29,19 @@ class ShowPayment extends Component
                          });
                 break;
             case 'id':
-                $query->join('payment_userb','payments.payment_id','=','payment_userb.payment_id')
-                ->join('userbs','userbs.id','=','payment_userb.userb_id')
+                $query->join('userbs','userbs.id','=','payments.userb_id')
                 ->where('userbs.status', 1)
-                ->where('payments.payment_id', 'LIKE', '%' . $this->search . '%');
+                ->where('payments.payment_id', $this->search);
+
                 break;      
             default:
-                $query->join('payment_userb','payments.payment_id','=','payment_userb.payment_id')
-                ->join('userbs','userbs.id','=','payment_userb.userb_id')
+                $query->join('userbs','userbs.id','=','payments.userb_id')
                 ->where('userbs.status', 1);
                 break;
         }
         
         $payes = $query->get();
+
         
         return view('livewire.show-payment',compact('payes'));
     }

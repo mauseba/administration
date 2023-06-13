@@ -16,6 +16,10 @@ return new class extends Migration
             $table->double('amount', 6);
             $table->enum('statup',[1,2]);
             $table->date('date');
+
+            $table->unsignedBigInteger('userb_id');
+            $table->foreign('userb_id')->references('id')->on('userbs')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

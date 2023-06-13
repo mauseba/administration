@@ -6,8 +6,8 @@
 
     <title>Report</title>
     @php
+
         use Carbon\Carbon;
-        //$datef= Carbon::now()->next(Carbon::FRIDAY)->isoFormat('D MMMM YYYY','fr');
         $datef= Carbon::parse($user->date)->isoFormat('D MMMM YYYY', 'fr');
 
     @endphp
@@ -31,16 +31,15 @@
     <h4 class="transformacion2" align="center"><strong>{{ $user->Nom }} <br>{{ $user->Prenom }}</strong></h4>
 
     <p>votre prochain rendez-vous</p>
-    <h3 align="center">{{ $datef}}</h3> 
+    <h3 align="center">{{$datef}}</h3> 
 
-    <p>Entre:<strong> 15h30 et 17h </strong></p>
+    <p>Entre:<strong> 15h30 et 17h. </strong></p>
 
     <p>A payer:<strong> {{$user->amount}}$ </strong> </p> 
 
     <div align="center"><img src="data:image/png;base64,{{ base64_encode($qrCode) }}" alt="QR Code"></div>
 
     <p style="font-size: large" align="center">Pour toute information, <br> SVP appelez le <strong>CACI</strong> au <br> <strong>514-856-3511, post 290</strong></p>
-
 </body>
 
 </html>

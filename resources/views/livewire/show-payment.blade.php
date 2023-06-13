@@ -39,6 +39,10 @@
                         Amount
                     </th>
 
+                    <th scope="col" class="cursor-pointer px-6 py-3">
+                        date_rendez-vous
+                    </th>
+                
                     <th scope="col" class="px-6 py-3">
                         options
                     </th>
@@ -70,6 +74,9 @@
                             <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                 {{ $pay->amount }}
                             </td>
+                            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                {{ $pay->date }}
+                            </td>
                             <td>
                                 <div class="flex px-6 py-4">
                                     <div class="flex-1 ml-2">
@@ -77,6 +84,11 @@
                                             <i class="far fa-file-pdf"></i>
                                         </a>
                                     </div>
+                                    @if($option=='id')
+                                    <div class="flex-1 ml-2">
+                                        @livewire('edit-payment', ['pay' => $pay], key($pay->payment_id))
+                                    </div>
+                                @endif
                                 </div>
                             </td>
                         </tr>

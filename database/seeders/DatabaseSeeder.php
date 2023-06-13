@@ -18,8 +18,8 @@ class DatabaseSeeder extends Seeder
     {
         
         $this->call(UserSeeder::class);
+        Userb::factory(20)->create();
         payment::factory(20)->create();
-        $this->call(UserbSeeder::class);
         Fam::factory(50)->create();
 
 

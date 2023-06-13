@@ -3,68 +3,55 @@
 namespace App\Http\Livewire;
 
 use App\Models\payment;
-use App\Models\Userb;
+use Carbon\Carbon;
 use Livewire\Component;
 use Illuminate\Support\Str;
-use Carbon\Carbon;
 
-class CreatePayment extends Component
+
+class EditPayment extends Component
 {
-    public $open = false;
-
-    public $options;
-    public $selectedOption;
-    public $search;
-
     public $id_user;
     public $amount = 3.00;
     Public $statup = 2;
     public $date;
-    
+    public $payment_id;
 
-    public function mount()
+    public function mount(payment $pay)
     {
-        $this->options = Userb::select('id','Nom','Prenom')
-                        ->where('status', 1)->get();
-    }
+        $this->id_user = $pay->id;
+        $this->date = $pay->date;
+        $this->payment_id = $pay->payment_id;
 
+    }
+    
     public function render()
     {
-        $info= Userb::select('id','Nom','Prenom')
-                        ->where('id',$this->selectedOption)
-                        ->first();
-
-        if(!empty($info)){
-            $this->id_user = $info->id;
-        }
-
-        return view('livewire.create-payment',compact('info'));
+        return view('livewire.edit-payment');
     }
 
     public function save()
     {
-        $this->date= Carbon::now()->next(Carbon::FRIDAY);
+        payment::where('payment_id', $this->payment_id)->update(['statup'=> 1]);
+
+        $dateg= Carbon::createFromFormat('Y-m-d', $this->date)->next(Carbon::FRIDAY);
 
         $payment= payment::create([
             'payment_id'=> Str::random(10),
             'amount'=> $this->amount,
             'statup'=> $this->statup,
-            'date'=> $this->date,
+            'date'=> $dateg,
             'userb_id'=> $this->id_user
         ]);
 
         $this->emitTo('show-payment','render');
         $this->emit('alert','le payment ont été créés avec succès');
 
-        $this->reset('open');
-
         $this->generateQRAndPDF($payment->payment_id);
-
-        
     }
 
     public function generateQRAndPDF($id)
     {
         redirect()->route('payment.pdf', ['id' => $id]);
     }
+
 }
