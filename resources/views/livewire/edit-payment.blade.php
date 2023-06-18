@@ -1,5 +1,5 @@
 <div>
     <a class="btn btn-blue" wire:click="save">
-        <i class="far fa-edit"></i>
+        <i class="fas fa-receipt"></i>
     </a>
 </div>

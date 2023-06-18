@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\QRController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ExcelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,5 +31,6 @@ Route::middleware([
         return view('payment');
     })->name('payment');
     Route::get('payment/{id}', [QRController::class, 'generateQRAndPDF'])->name('payment.pdf');
+    Route::get('export/payes', [ExcelController::class, 'generateExcel'])->name('payment.excel');
 });
 
