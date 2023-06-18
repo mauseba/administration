@@ -48,13 +48,15 @@ class ShowPayment extends Component
                 break;    
             case 'reporte':
                 $query->join('userbs','userbs.id','=','payments.userb_id')
-                ->where('userbs.status', 1)
-                ->where(function($q) {
+                ->where(
+                    function($q) {
                       return $q
                              ->where('Prenom', 'LIKE', '%' . $this->search . '%')
-                             ->orWhere('Nom', 'LIKE', '%' . $this->search . '%')
-                             ->whereBetween('payments.updated_at', [$this->dateIn, $this->dateFn]);
-                     });
+                             ->orWhere('Nom', 'LIKE', '%' . $this->search . '%');
+                     })
+                ->whereBetween('payments.updated_at', [$this->dateIn, $this->dateFn])
+                ->where('userbs.status', 1);
+                     
                 break;    
             default:
                 $query->join('userbs','userbs.id','=','payments.userb_id')
@@ -114,13 +116,15 @@ class ShowPayment extends Component
             case 'reporte':
                 $query->join('userbs','userbs.id','=','payments.userb_id')
                 ->select('payment_id','Prenom','Nom','userbs.status','amount','statup','date','payments.created_at','payments.updated_at')
-                ->whereBetween('payments.updated_at', [$this->dateIn, $this->dateFn])
-                ->where(function($q) {
+                ->where(
+                    function($q) {
                       return $q
-                             ->where('userbs.status', 1)
                              ->where('Prenom', 'LIKE', '%' . $this->search . '%')
                              ->orWhere('Nom', 'LIKE', '%' . $this->search . '%');
-                     });
+                     })
+                ->whereBetween('payments.updated_at', [$this->dateIn, $this->dateFn])
+                ->where('userbs.status', 1);
+
                 break;
             default:
                 $query->join('userbs','userbs.id','=','payments.userb_id')
