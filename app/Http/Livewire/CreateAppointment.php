@@ -17,7 +17,7 @@ class CreateAppointment extends Component
     public $dateApp;
     public $user_id;
 
-    protected $listeners = 'modal';
+    protected $listeners = ['modal'];
 
     public function mount()
     {
@@ -37,7 +37,7 @@ class CreateAppointment extends Component
         $this->reset('horeIn','horeFn','dateApp');
 
         $this->dateApp = Carbon::parse(Arr::get($info,'start'))->format('Y-m-d');
-        
+
         if($info['allDay']){
             $this->horeIn = '00:00';
             $this->horeFn = '23:59';
@@ -59,9 +59,8 @@ class CreateAppointment extends Component
             'user_id'=>$this->user_id
         ]);
 
-        $this->emitTo('show-appointment','render');
+        $this->emit('CreationAPP');
         $this->emit('alert','le payment ont été créés avec succès');
-
         $this->reset('open','horeIn','horeFn','dateApp');
     }
 }

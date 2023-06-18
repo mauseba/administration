@@ -8,8 +8,8 @@
         <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
         <script>
             document.addEventListener('livewire:load', function() {
-            // Obtén los eventos de las citas desde tu base de datos
-            // y conviértelos en un formato adecuado para FullCalendar
+                // Obtén los eventos de las citas desde tu base de datos
+                // y conviértelos en un formato adecuado para FullCalendar
 
                 var calendarEl = document.getElementById('calendar');
 
@@ -18,18 +18,23 @@
                     headerToolbar: {
                         left: 'prev,next today',
                         center: 'title',
-                        right: 'dayGridMonth,timeGridWeek,timeGridDay'},
+                        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                    },
                     select: function(info) {
-                        livewire.emitTo('create-appointment','modal',info);
+                        livewire.emitTo('create-appointment', 'modal', info);
                         //alert('selected ' + info.startStr + ' to ' + info.endStr);
                     },
                     events: @json($formattedEvents)
-                    // Aquí puedes configurar más opciones de FullCalendar según tus necesidades
                 });
 
                 calendar.render();
+
+                Livewire.on('CreationAPP', function() {
+                    console.log('recibelo');
+                    calendar.refetchEvents();
+                });
+
             });
-            
         </script>
     @endpush
 </div>

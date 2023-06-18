@@ -9,7 +9,6 @@ use Illuminate\Support\Collection;
 
 class ShowAppointment extends Component
 {
-    protected $listeners = 'render';
 
     public function render()
     {
