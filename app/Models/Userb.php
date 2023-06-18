@@ -54,4 +54,9 @@ class Userb extends Model
     {
         return $this->hasMany(payment::class);
     }
+    
+    public function appointment(): HasMany
+    {
+        return $this->hasMany(Appointment::class);
+    }
 }

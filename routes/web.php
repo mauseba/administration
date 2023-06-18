@@ -30,6 +30,9 @@ Route::middleware([
     Route::get('/payments', function () {
         return view('payment');
     })->name('payment');
+    Route::get('/appointment', function () {
+        return view('appointment');
+    })->name('appointment');
     Route::get('payment/{id}', [QRController::class, 'generateQRAndPDF'])->name('payment.pdf');
     Route::get('export/payes', [ExcelController::class, 'generateExcel'])->name('payment.excel');
 });
