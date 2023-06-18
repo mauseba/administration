@@ -15,7 +15,7 @@
             <th><strong>montant</strong></th>
             <th><strong>status_paiment</strong></th>
             <th><strong>date_rendez-vous</strong></th>
-            <th><strong>date_mise à jour</strong></th>
+            <th><strong>date_creation</strong></th>
         </tr>
         </thead>
         <tbody>
