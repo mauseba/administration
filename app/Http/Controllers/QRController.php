@@ -13,7 +13,7 @@ class QRController extends Controller
         $qrCode = QrCode::format('png')->size(150)->generate($id);
 
         $user=payment::join('userbs','userbs.id','=','payments.userb_id')
-        ->select('userbs.id','userbs.Nom','userbs.Prenom','amount','date')
+        ->select('userbs.id','userbs.Nom','userbs.Prenom','amount','date','hourap')
         ->where('payments.payment_id', $id)
         ->first();
 

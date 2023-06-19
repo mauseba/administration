@@ -19,6 +19,9 @@ class CreatePayment extends Component
     public $id_user;
     public $amount = 3.00;
     Public $statup = 2;
+    public $group = 1;
+    public $hourap;
+    public $interval = 7;
     public $date;
     
 
@@ -26,6 +29,7 @@ class CreatePayment extends Component
     {
         $this->options = Userb::select('id','Nom','Prenom')
                         ->where('status', 1)->get();
+
     }
 
     public function render()
@@ -43,13 +47,19 @@ class CreatePayment extends Component
 
     public function save()
     {
-        $this->date= Carbon::now()->next(Carbon::FRIDAY);
+        $this->date= Carbon::now()->next(Carbon::FRIDAY)->format('Y-m-d');
+
+        if($this->interval > 7){
+            $this->date = Carbon::createFromFormat('Y-m-d', $this->date)->addDays($this->interval);
+        }
 
         $payment= payment::create([
             'payment_id'=> Str::random(10),
             'amount'=> $this->amount,
             'statup'=> $this->statup,
             'date'=> $this->date,
+            'groupe'=>$this->group,
+            'hourap'=>$this->hourap,
             'userb_id'=> $this->id_user
         ]);
 

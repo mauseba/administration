@@ -104,12 +104,37 @@
                         @endif
                     </th>
 
+                    <th scope="col" class="cursor-pointer px-6 py-3" wire:click="order('groupe')">
+                        Groupe
+                        @if ($sort == 'groupe')
+                            @if ($direction == 'asc')
+                                <i class="fas fa-sort-alpha-up-alt float-right mt-1"></i>
+                            @else
+                                <i class="fas fa-sort-alpha-down-alt float-right mt-1"></i>
+                            @endif
+                        @else
+                            <i class="fas fa-sort float-right mt-1"></i>
+                        @endif
+                    </th>
+
+                    <th scope="col" class="cursor-pointer px-6 py-3" wire:click="order('hourap')">
+                        hourap
+                        @if ($sort == 'hourap')
+                            @if ($direction == 'asc')
+                                <i class="fas fa-sort-alpha-up-alt float-right mt-1"></i>
+                            @else
+                                <i class="fas fa-sort-alpha-down-alt float-right mt-1"></i>
+                            @endif
+                        @else
+                            <i class="fas fa-sort float-right mt-1"></i>
+                        @endif
+                    </th>
+
                     <th scope="col" class="px-6 py-3">
                         options
                     </th>
                 </tr>
             </thead>
-
             <tbody>
                 @if ($payes->count())
                     @foreach ($payes as $pay)
@@ -138,6 +163,12 @@
                             </td>
                             <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                 {{ $pay->date }}
+                            </td>
+                            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                {{ $pay->groupe }}
+                            </td>
+                            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                {{ $pay->hourap }}
                             </td>
                             <td>
                                 <div class="flex px-6 py-4">

@@ -24,8 +24,8 @@ class PaymentFactory extends Factory
             'amount'=>fake()->randomFloat($nbMaxDecimals = NULL, $min = 0, $max = NULL),
             'statup'=>fake()->randomElement($array = array(1,2)),
             'date'=>Carbon::now()->next(Carbon::FRIDAY),
+            'groupe'=>fake()->randomElement($array = array(1,2)),
             'userb_id'=>Userb::all()->random()->id
-
 
         ];
     }

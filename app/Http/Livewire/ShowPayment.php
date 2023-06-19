@@ -32,7 +32,7 @@ class ShowPayment extends Component
         switch ($this->option) {
             case 'name':
                 $query->join('userbs','userbs.id','=','payments.userb_id')
-                    ->select('payment_id','Prenom','Nom','userbs.status','amount','statup','date','payments.created_at','payments.updated_at')
+                    ->select('payment_id','Prenom','Nom','userbs.status','amount','statup','date','payments.created_at','payments.updated_at','userbs.id','groupe','hourap')
                     ->where('userbs.status', 1)
                     ->where(
                         function($q) {
@@ -43,14 +43,14 @@ class ShowPayment extends Component
                 break;
             case 'id':
                 $query->join('userbs','userbs.id','=','payments.userb_id')
-                ->select('payment_id','Prenom','Nom','userbs.status','amount','statup','date','payments.created_at','payments.updated_at')
+                ->select('payment_id','Prenom','Nom','userbs.status','amount','statup','date','payments.created_at','payments.updated_at','userbs.id','groupe','hourap')
                 ->where('userbs.status', 1)
                 ->where('payments.payment_id', $this->search);
 
                 break;    
             case 'reporte':
                 $query->join('userbs','userbs.id','=','payments.userb_id')
-                ->select('payment_id','Prenom','Nom','userbs.status','amount','statup','date','payments.created_at','payments.updated_at')
+                ->select('payment_id','Prenom','Nom','userbs.status','amount','statup','date','payments.created_at','payments.updated_at','userbs.id','groupe','hourap')
                 ->where(
                     function($q) {
                       return $q
@@ -107,7 +107,7 @@ class ShowPayment extends Component
         switch ($this->option) {
             case 'name':
                 $query->join('userbs','userbs.id','=','payments.userb_id')
-                    ->select('payment_id','Prenom','Nom','userbs.status','amount','statup','date','payments.created_at','payments.updated_at')
+                    ->select('payment_id','Prenom','Nom','userbs.status','amount','statup','date','payments.created_at','payments.updated_at','groupe','hourap')
                     ->where('userbs.status', 1)
                     ->where(
                         function($q) {
@@ -118,7 +118,7 @@ class ShowPayment extends Component
                 break;
             case 'reporte':
                 $query->join('userbs','userbs.id','=','payments.userb_id')
-                ->select('payment_id','Prenom','Nom','userbs.status','amount','statup','date','payments.created_at','payments.updated_at')
+                ->select('payment_id','Prenom','Nom','userbs.status','amount','statup','date','payments.created_at','payments.updated_at','groupe','hourap')
                 ->where(
                     function($q) {
                       return $q
@@ -131,7 +131,7 @@ class ShowPayment extends Component
                 break;
             default:
                 $query->join('userbs','userbs.id','=','payments.userb_id')
-                ->select('payment_id','Prenom','Nom','userbs.status','amount','statup','date','payments.created_at','payments.updated_at')
+                ->select('payment_id','Prenom','Nom','userbs.status','amount','statup','date','payments.created_at','payments.updated_at','groupe','hourap')
                 ->where('userbs.status', 1);
                 break;
         }

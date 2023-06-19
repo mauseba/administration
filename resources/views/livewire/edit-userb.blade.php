@@ -12,7 +12,7 @@
                     <li class="-mb-px mr-1">
                         <x-button
                             class="inline-block border-l border-t border-r rounded-t py-2 px-4 {{ $tab === 'tab1' ? 'text-blue-500 font-semibold' : 'text-gray-500' }}"
-                            wire:click="$set('tab', 'tab1')">User Data</x-button>
+                            wire:click="$set('tab', 'tab1')">Données d'utilisateur</x-button>
                     </li>
                     <li class="-mb-px mr-1">
                         <x-button
@@ -20,7 +20,7 @@
                             wire:click="$set('tab', 'tab2')">Renseignement</x-button>
                     </li>
                     <li class="-mb-px mr-1">
-                        <x-button wire:click="$set('tab', 'tab3')">Family</x-button>
+                        <x-button wire:click="$set('tab', 'tab3')">Famille</x-button>
                     </li>
                 </ul>
 

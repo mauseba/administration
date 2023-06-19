@@ -16,6 +16,8 @@ class payment extends Model
         'amount',
         'statup',
         'date',
+        'groupe',
+        'hourap',
         'userb_id'    
     ];
 

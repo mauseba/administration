@@ -38,12 +38,42 @@
                         <x-input id="Prenom" class="block mt-1 w-full" type="text" name="Prenom" value="{{$info->Prenom}}" required autofocus readonly />
                         
                     </div>
+                </div>
 
-                    <div class="flex-1 w-1/2 ml-2 px-3">
+                <div class="flex -mx-3 mb-2">
+                    <div class="flex-1 w-1/3 ml-2 px-3">
                         <x-label for="Value" value="{{ __('Value') }}" />
-                        <x-input id="Value" class="block mt-1 w-full" type="number" name="Value" value="3.00" wire:model="amount" required autofocus readonly />
+                        <x-input id="Value" class="block mt-1 w-full" type="number" name="Value" wire:model="amount" required autofocus/>
                         
                     </div>
+
+                    <div class="flex-1 w-1/3 ml-2 px-3">
+                        <x-label for="group" value="{{ __('Group: ') }}" />
+                        <select wire:model="group" id="group" class="block mt-1 mr-4 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option value="1">groupe 1</option>
+                            <option value="2">groupe 2</option>
+                        </select>
+                    </div>
+
+                    <div class="flex-1 w-1/3 ml-2 px-3">
+                        <x-label for="interval" value="{{ __('Intervalle') }}" />
+                        <x-input id="interval" class="block mt-1 w-full" type="number" name="interval" wire:model="interval" step="7" min="7" required autofocus />
+                    </div>
+
+                    @if ($group == 1)
+                        <div class="flex-1 w-1/3 ml-2 px-3">
+                            <x-label for="hourap" value="{{ __('houre de RV') }}" />
+                            <x-input id="hourap" class="block mt-1 w-full" type="Time" name="hourap" wire:model="hourap" min="13:00" max="14:30" step="300" required autofocus />
+                            <span color="red"> doit être entre 13h00 et 14h30</span>
+                        </div>
+                    @else
+                        <div class="flex-1 w-1/3 ml-2 px-3">
+                            <x-label for="hourap" value="{{ __('houre de RV') }}" />
+                            <x-input id="hourap" class="block mt-1 w-full" type="Time" name="hourap" wire:model="hourap" min="14:31" max="16:50" required autofocus />
+                            <span color="red"> doit être entre 14h31 et 16h50</span>
+                        </div>
+                    @endif
+                   
                 </div>
              @endif
 

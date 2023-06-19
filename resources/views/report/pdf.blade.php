@@ -33,7 +33,7 @@
     <p>votre prochain rendez-vous</p>
     <h3 align="center">{{$datef}}</h3> 
 
-    <p>Entre:<strong> 15h30 et 17h. </strong></p>
+    <p>Heure:<strong> {{ $user->hourap }}  </strong></p>
 
     <p>A payer:<strong> {{$user->amount}}$ </strong> </p> 
 
