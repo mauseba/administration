@@ -29,7 +29,7 @@ class CreateUserbs extends Component
         'CodePostal' =>'required',
         'Adresse' => 'required',
         'Telephone' => 'required',
-        'Courriel' => 'required|email',
+        'Courriel' => 'required|email|unique:userbs',
         'Langue' => 'required',
         'EtatMatrimonial' => 'required',
         'StatutCanada' => 'required',

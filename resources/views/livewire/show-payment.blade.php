@@ -10,8 +10,8 @@
                 <option value="reporte">rapport</option>
             </select>
 
-            <x-input class="mt-1 mr-4 flex-1" type="text" wire:model="search" placeholder="Search"
-                autocomplete="search" />
+            <x-input class="mt-1 mr-4 flex-1" type="text" wire:model="search" placeholder="chercher"
+                autocomplete="chercher" />
 
             @if ($option == 'reporte')
                 <div class="px-6 py-4 flex items-center">
@@ -118,7 +118,7 @@
                     </th>
 
                     <th scope="col" class="cursor-pointer px-6 py-3" wire:click="order('hourap')">
-                        hourap
+                        heure
                         @if ($sort == 'hourap')
                             @if ($direction == 'asc')
                                 <i class="fas fa-sort-alpha-up-alt float-right mt-1"></i>
@@ -131,7 +131,7 @@
                     </th>
 
                     <th scope="col" class="px-6 py-3">
-                        options
+                        choix
                     </th>
                 </tr>
             </thead>

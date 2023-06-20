@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\QRController;
+use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExcelController;
 
@@ -35,5 +36,6 @@ Route::middleware([
     })->name('appointment');
     Route::get('payment/{id}', [QRController::class, 'generateQRAndPDF'])->name('payment.pdf');
     Route::get('export/payes', [ExcelController::class, 'generateExcel'])->name('payment.excel');
+    Route::get('appointment/show', [EventController::class, 'index'])->name('events.show');
 });
 

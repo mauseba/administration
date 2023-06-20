@@ -51,7 +51,9 @@
 
     @stack('js')
     @stack('script')
+    
     @stack('scripts')
+    @stack('script3')
 
 
     <script>

@@ -1,8 +1,10 @@
 <div>
     <div class="mt-4 relative overflow-x-auto shadow-md sm:rounded-lg">
         @livewire('create-appointment')
-        <div class="px-6 py-4" id="calendar"></div>
+        @livewire('edit-appointment')
     </div>
+
+    <div id="calendar"></div>
 
     @push('scripts')
         <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
@@ -14,23 +16,29 @@
                 var calendarEl = document.getElementById('calendar');
 
                 var calendar = new FullCalendar.Calendar(calendarEl, {
-                    selectable: true,
                     headerToolbar: {
                         left: 'prev,next today',
                         center: 'title',
                         right: 'dayGridMonth,timeGridWeek,timeGridDay'
                     },
+
+                    selectable: true,
+                    selectMirror: true,
+                    eventDisplay:'block',
+
                     select: function(info) {
                         livewire.emitTo('create-appointment', 'modal', info);
                         //alert('selected ' + info.startStr + ' to ' + info.endStr);
                     },
-                    events: @json($formattedEvents)
+                    eventClick: function(info) {
+                        livewire.emitTo('edit-appointment','modal', info.event);
+                    },
+                    events: "{{url('appointment/show')}}",
                 });
 
                 calendar.render();
 
                 Livewire.on('CreationAPP', function() {
-                    console.log('recibelo');
                     calendar.refetchEvents();
                 });
 

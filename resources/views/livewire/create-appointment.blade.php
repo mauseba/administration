@@ -1,7 +1,7 @@
 <div>
     <x-dialog-modal wire:model="open" class="overflow-y-scroll">
         <x-slot name="title">
-            <h1>Cardona</h1>
+            <h1>créer un rendez-vous</h1>
         </x-slot>
         <x-slot name="content">
             <div>

@@ -10,8 +10,8 @@
                 <option value="2">inactive</option>
             </select>
 
-            <x-input class="flex-1 mt-1 mr-4" type="text" wire:model="search" placeholder="Search"
-                autocomplete="search" />
+            <x-input class="flex-1 mt-1 mr-4" type="text" wire:model="search" placeholder="chercher"
+                autocomplete="chercher" />
             @livewire('create-userbs')
         </div>
         <table class="mt-2 w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -76,11 +76,11 @@
                     </th>
 
                     <th scope="col" class="cursor-pointer px-6 py-3">
-                        status
+                        Statut
                     </th>
 
                     <th scope="col" class="px-6 py-3">
-                        options
+                        Choix
                     </th>
                 </tr>
             </thead>

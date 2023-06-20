@@ -60,7 +60,7 @@ class CreateAppointment extends Component
         ]);
 
         $this->emit('CreationAPP');
-        $this->emit('alert','le payment ont été créés avec succès');
+        $this->emit('alert','le rendez-vous ont été créés avec succès');
         $this->reset('open','horeIn','horeFn','dateApp');
     }
 }
