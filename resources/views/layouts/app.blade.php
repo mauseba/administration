@@ -59,7 +59,7 @@
     <script>
         livewire.on('alert', function(mesage) {
             Swal.fire(
-                'Good job!',
+                'Bon travail!',
                 mesage,
                 'success'
             )
