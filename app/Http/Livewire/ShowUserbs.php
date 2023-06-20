@@ -5,6 +5,8 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Userb;
 use Livewire\WithPagination;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\UsersExport;
 use App\Models\Fam;
 
 
@@ -13,6 +15,7 @@ class ShowUserbs extends Component
     use WithPagination;
 
     public $search;
+    public $result;
     public $sort='id';
     public $direction='desc';
     public $status;
@@ -33,10 +36,11 @@ class ShowUserbs extends Component
         if (!empty($this->status  && $this->status !== 'all')) {
             $query->where('status', $this->status);
         }
-
+        $this->result = $query->orderBy($this->sort, $this->direction)->get();
 
         $users = $query->orderBy($this->sort, $this->direction)->paginate(10);
 
+        
                     
         return view('livewire.show-userbs',compact('users'));
     }
@@ -67,4 +71,10 @@ class ShowUserbs extends Component
 
         $this->emitTo('show-fam','render');
     }
+
+    public function createInform()
+    {
+        return Excel::download(new UsersExport($this->result), 'reportutilisator.xlsx');
+    }
+
 }

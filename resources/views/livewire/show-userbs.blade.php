@@ -12,6 +12,14 @@
 
             <x-input class="flex-1 mt-1 mr-4" type="text" wire:model="search" placeholder="chercher"
                 autocomplete="chercher" />
+
+                        
+            <div class="px-3 py-2">
+                <a class="btn btn-green" wire:click="createInform">
+                    <i class="far fa-file-excel"></i>
+                </a>
+            </div>
+
             @livewire('create-userbs')
         </div>
         <table class="mt-2 w-full text-sm text-left text-gray-500 dark:text-gray-400">
